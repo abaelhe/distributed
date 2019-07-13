@@ -2823,8 +2823,8 @@ class Client(Node):
             return result
 
     @gen.coroutine
-    def _upload_environment(self, zipfile):
-        name = os.path.split(zipfile)[1]
+    def _upload_environment(self, name, zipfile):
+        name = name or os.path.split(zipfile)[1]
         yield self._upload_large_file(zipfile, name)
 
         def unzip(dask_worker=None):
