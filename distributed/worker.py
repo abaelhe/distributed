@@ -2080,7 +2080,10 @@ class Worker(ServerNode):
                 del self.types[key]
             if key in self.actors and key not in self.dep_state:
                 del self.actors[key]
+
+            if key in self.nbytes:
                 del self.nbytes[key]
+            if key in self.types:
                 del self.types[key]
 
             if key in self.waiting_for_data:
